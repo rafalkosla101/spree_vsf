@@ -26,12 +26,12 @@ module.exports = {
         backendUrl: process.env.BACKEND_URL,
         assetsUrl: process.env.ASSETS_URL,
         spreeFeatures: {
-          ...defaultFeatures[process.env.SPREE_VERSION || 'spree43'],
+          ...defaultFeatures[process.env.SPREE_VERSION || 'spree44'],
           // Accepted wishlist values:
           // 'enabled' (Spree 4.4+)
           // 'legacy' (Spree older than 4.4 with spree_wishlist gem installed)
           // 'disabled' (Spree older than 4.4 without spree_wishlist gem)
-          wishlist: 'disabled'
+          wishlist: 'enabled'
         }
       }
     }

@@ -8,7 +8,7 @@
   "env": {
     "BACKEND_URL": {
       "description": "Spree backend URL (without the /api suffix)",
-      "value": "https://demo.spreecommerce.org"
+      "value": "https://spree-latest.herokuapp.com"
     },
     "SPREE_VERSION": {
       "description": "Spree version of the backend. Either \"spree42\" or \"spree43\".",
