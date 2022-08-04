@@ -197,8 +197,23 @@ export default {
     },
     extendRoutes(routes, resolve) {
       routes.push({
+        name: 'OrderDetails',
         path: '/my-account/:pageName/:id?',
         component: resolve(__dirname, 'pages/MyAccount.vue')
+      });
+      
+      // Delete OOB product route
+      routes.splice(
+        routes.findIndex(route => route.path === '/Product'),
+        1
+      );
+
+      // Re-register the product route with different path
+      routes.push({
+        name: 'Product',
+        path: '/products/:slug/',
+        component: resolve(__dirname, '_theme/pages/Product.vue'),
+        chunkName: '_theme/pages/Product'
       });
     }
   },

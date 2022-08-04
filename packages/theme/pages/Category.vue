@@ -9,7 +9,7 @@
         <LazyHydrate never>
           <SfHeading
             :level="3"
-            :title="$t('Categories')"
+            :title="$t('pages.category.categories')"
             class="navbar__title" />
         </LazyHydrate>
       </div>
@@ -97,7 +97,7 @@
               :add-to-cart-disabled="!productGetters.getInStock(product)"
               :is-in-wishlist="isInWishlist({ product })"
               :is-added-to-cart="isInCart({ product })"
-              :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+              :link="localePath(`/products/${productGetters.getSlug(product)}`)"
               :wishlist-icon="isWishlistDisabled ? false : undefined"
               class="products__product-card"
               @click:wishlist="handleWishlistClick(product)"
@@ -123,7 +123,7 @@
               :regular-price="$n(productGetters.getPrice(product).regular, 'currency')"
               :special-price="productGetters.getPrice(product).special && $n(productGetters.getPrice(product).special, 'currency')"
               :is-in-wishlist="isInWishlist({ product })"
-              :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+              :link="localePath(`/products/${productGetters.getSlug(product)}`)"
               @click:wishlist="handleWishlistClick(product)"
               @click:add-to-cart="addItemToCart({ product, quantity: 1 })"
             >
@@ -142,14 +142,14 @@
                   class="sf-button--text wishlist__button desktop-only"
                   @click="handleWishlistClick(product)"
                 >
-                  {{ $t('Save for later') }}
+                  {{ $t('pages.category.save_for_later') }}
                 </SfButton>
                 <SfButton
                   v-else
                   class="sf-button--text wishlist__button desktop-only"
                   @click="handleWishlistClick(product)"
                 >
-                  {{ $t('Remove from wishlist') }}
+                  {{ $t('pages.category.remove_from_wishlist') }}
                 </SfButton>
               </template>
             </SfProductCardHorizontal>
@@ -170,7 +170,7 @@
             v-show="pagination.totalPages > 1"
             class="products__show-on-page"
           >
-            <span class="products__show-on-page__label">{{ $t('Show on page') }}</span>
+            <span class="products__show-on-page__label">{{ $t('pages.category.show_on_page') }}</span>
             <LazyHydrate on-interaction>
               <SfSelect
                 :value="pagination && pagination.itemsPerPage ? pagination.itemsPerPage.toString() : ''"
@@ -244,10 +244,11 @@ export default {
     const { locale } = context.app.i18n;
 
     const getRoute = (category) => {
+      const slugBasedRoute = `/c/${category.slug}`;
       if (menu.value.isDisabled) {
-        return '/c/' + category.slug;
+        return slugBasedRoute;
       }
-      return category.link;
+      return category.link || slugBasedRoute;
     };
 
     const activeCategory = computed(() => {
