@@ -1,5 +1,22 @@
 export default {
   shared: {
+    validation: {
+      email: 'Please, provide a valid email address',
+      required: 'This field is required',
+      password: {
+        min_characters_letter_number: 'Password must have at least {minCharacters} characters including one letter and a number'
+      },
+      confirmed: {
+        passwords: 'Passwords don\'t match'
+      },
+      min: 'This field should have at least {length} characters',
+      one_of: {
+        country: 'Invalid country'
+      },
+      digits: {
+        phone_number: 'Please, provide a valid phone number'
+      }
+    },
     form: {
       email: 'Email',
       first_name: 'First Name',
@@ -325,6 +342,10 @@ export default {
       view: 'View',
       change_to_grid_view: 'Change to grid view',
       change_to_list_view: 'Change to list view'
+    },
+    content_page: {
+      not_found: 'Page not found',
+      try_again_with_different_url: 'The URL is not valid and cannot be loaded'
     },
     filters_sidebar: {
       done: 'Done',

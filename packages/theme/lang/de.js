@@ -1,5 +1,22 @@
 export default {
   shared: {
+    validation: {
+      email: 'Bitte geben Sie eine gültige E-Mail Adresse an',
+      required: 'Dieses Feld ist erforderlich',
+      password: {
+        min_characters_letter_number: 'Das Passwort muss mindestens {minCharacters} Zeichen lang sein, darunter ein Buchstabe und eine Zahl'
+      },
+      confirmed: {
+        passwords: 'Passwörter stimmen nicht überein'
+      },
+      min: 'Dieses Feld sollte mindestens {length} Zeichen haben',
+      one_of: {
+        country: 'Ungültiges Land'
+      },
+      digits: {
+        phone_number: 'Geben Sie bitte eine gültige Telephonnummer an'
+      }
+    },
     form: {
       email: 'Email',
       first_name: 'Vorname',
@@ -304,6 +321,10 @@ export default {
       view: 'Sicht',
       change_to_grid_view: 'Wechseln Sie in die Rasteransicht',
       change_to_list_view: 'Zur Listenansicht wechseln'
+    },
+    content_page: {
+      not_found: 'Seite nicht gefunden',
+      try_again_with_different_url: 'Die URL ist ungültig und kann nicht geladen werden'
     },
     filters_sidebar: {
       done: 'Erledigt',
